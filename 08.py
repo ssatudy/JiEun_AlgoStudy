@@ -26,7 +26,7 @@ for f in range(max(blocks)+1): #f는 층수. 1층인 f=0 부터 시작해서 max
 
     new_blocks = new_blocks.strip('0') # 양쪽 끝에 0 제거
     new_blocks = list(new_blocks) # 0의 개수를 count 해야돼서 str > list
-    cnt = new_blocks.count('0') # 0의 개수 = 물 블럭의 개수
+    cnt = new_blocks.count('0') # 0의 개수 = 물 블럭의 개수.
     water_blocks += cnt
     new_blocks = []
     
