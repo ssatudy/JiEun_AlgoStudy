@@ -1,23 +1,31 @@
-'''
-blocks = [0,1,0,2,1,0,1,3,2,1,2,1]
+# blocks = [1, 0, 2, 3, 2, 0, 4]
+blocks = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]
+h_block = max(blocks)
 
-total_volume = []
+list(map(str, blocks))
 
-for i in range(len(blocks)-1):
-    k = abs(blocks[i-1] - blocks[i+1]) - blocks[i]
-    if k > 0:
-        total_volume.append(k)
+new_blocks = []
 
-print(sum(total_volume))
-'''
 
-'''
-1.
-blocks을 돌며 값이 1이상인 경우 1로 바꾸고 0 이면 0 
-1사이에 있는 0의 개수를 물 블럭에 추가
+water_blocks = 0
 
-2.
-blocks을 돌며 2 이상인 값들은 1로 1이나 0은 0으로
-1과 1사이에 있는 0의 값 출력 
-'''
-
+for f in range(max(blocks)+1): #f는 층수. 1층인 f=0 부터 시작해서 max 층인 f=max-1 까지
+    for i in blocks:
+        
+        if i >= f+1:
+            i = str(i)
+            new_blocks.append(i.replace(i, '1'))
+            continue
+        else: 
+            i = str(i)
+            # i.replace(i, '0') 
+            new_blocks.append(0)
+            continue
+    new_blocks = ''.join(map(str, new_blocks))
+    new_blocks = new_blocks.strip('0')
+    new_blocks = list(new_blocks)
+    cnt = new_blocks.count('0')
+    water_blocks += cnt
+    new_blocks = []
+    
+print(water_blocks)

@@ -1,7 +1,7 @@
 #덧샘하여 타겟을 만들 수 있는 배열의 두 숫자 인덱스를 리턴.
 
-nums= [2, 7, 11,15]
-target = 9
+nums= [3, 5]
+target = 6
 couple_nums = [] #뎃셈하여 타겟을 만들 수 있는 숫자 두개의 리스트
 
 for i in range(target+1):

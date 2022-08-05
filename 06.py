@@ -1,5 +1,5 @@
 #가장 긴 팰린드롬 문자열
-
+'''
 def longestPalindrome(self, s: str) -> str:
 
     #팰린드롬 판별 및 투포인터 확장
@@ -19,7 +19,5 @@ def longestPalindrome(self, s: str) -> str:
         result = max(result, expand(i, i + 1), expand(i, i + 2), key = len)
 
     return result
-
-'''
 
 '''
