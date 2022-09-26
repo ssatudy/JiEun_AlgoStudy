@@ -2,8 +2,7 @@ from sys import stdin
 def back(k):
     ret = sorted(ans)
     ret = ''.join(ret)
-    if k == m and  ret not in used:
-
+    if k == m and ret not in used:
         used[ret] = 1
         print(ret)
         return
@@ -17,7 +16,6 @@ def back(k):
 
 
 m, n = map(int, stdin.readline().split())
-
 lst = sorted(list(stdin.readline().split()))
 
 ans = []
