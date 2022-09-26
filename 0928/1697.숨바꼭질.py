@@ -6,24 +6,20 @@ def back(r, c, ):
         if friends.count('S') >= 4:
             cnt += 1
         return
-
     for dd in range(4):
         R = r + dr[dd]
         C = c + dc[dd]
         if 0 <= R < 5 and 0 <= C < 5:
             if (R, C) not in d_rc:
-                if d_rc:
-                    if abs(d_rc[-1][0] - R) == 1 or abs(d_rc[-1][1] - C) == 1:
-                        d_rc += [(R, C)]
-                        friends.append(arr[R][C])
-                        back(R, C)
-                        friends.pop()
-                        d_rc.pop()
-                    else: return
-                else:
-                    d_rc += [(R, C)]
+                if abs(d_rc[-1][0] - R) == 1 or abs(d_rc[-1][1] - C) == 1:
                     friends.append(arr[R][C])
+                    d_rc += [(R, C)]
                     back(R, C)
+                    friends.pop()
+                else:
+                    d_rc.pop()
+                    return
+
 
 
 arr = list(input() for _ in range(5))
@@ -38,3 +34,10 @@ for i in range(5):
         friends = [arr[i][j]]
         back(i, j)
 print(cnt)
+'''
+YYYYY
+SYSYS
+YYYYY
+YSYYY
+YYYYS
+'''
