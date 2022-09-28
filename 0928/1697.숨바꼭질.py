@@ -1,43 +1,27 @@
-def back(r, c, ):
-    global friends, cnt, d_rc
-    if friends.count('Y') > 3:
-        return
-    if len(friends) == 7:
-        if friends.count('S') >= 4:
-            cnt += 1
-        return
-    for dd in range(4):
-        R = r + dr[dd]
-        C = c + dc[dd]
-        if 0 <= R < 5 and 0 <= C < 5:
-            if (R, C) not in d_rc:
-                if abs(d_rc[-1][0] - R) == 1 or abs(d_rc[-1][1] - C) == 1:
-                    friends.append(arr[R][C])
-                    d_rc += [(R, C)]
-                    back(R, C)
-                    friends.pop()
-                else:
-                    d_rc.pop()
-                    return
+from collections import deque
+
+def bfs():
+    q = deque([s])
+    while q:
+        n = q.popleft()
+        if n == e:
+            return visited[n]
+        for i in range(4):
+            if i == 0:
+                k = n + 1
+            elif i == 1:
+                k = n - 1
+            elif i == 2:
+                k = n * 2
+            elif i == 3:
+                k = n - 10
+            if 0 <= k <= maxx and not visited[k]:
+                visited[k] = visited[n] + 1
+                q.append(k)
 
 
-
-arr = list(input() for _ in range(5))
-dr = [0, 1, 0, -1]
-dc = [1, 0, -1, 0]
-d = []
-cnt = 0
-for i in range(5):
-    for j in range(5):
-        d_rc = []
-        d_rc += [(i, j)]
-        friends = [arr[i][j]]
-        back(i, j)
-print(cnt)
-'''
-YYYYY
-SYSYS
-YYYYY
-YSYYY
-YYYYS
-'''
+for tc in range(1, int(input())+1):
+    s, e = map(int, input().split())
+    maxx = 10**6
+    visited = [0]*(maxx+1)
+    print(f'#{tc} {bfs()}')
