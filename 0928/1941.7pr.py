@@ -32,3 +32,12 @@ for i in range(5):
         friends = [arr[i][j]]
         back(i, j)
 print(cnt)
+
+
+'''
+YYYYY
+SYSYS
+YYYYY
+YSYYY
+YYYYS
+'''
